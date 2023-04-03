@@ -1,7 +1,6 @@
 build {
 
   sources = [
-    "source.digitalocean.dn",
     "source.digitalocean.rl",
     "source.digitalocean.cs",
     "source.digitalocean.al",
