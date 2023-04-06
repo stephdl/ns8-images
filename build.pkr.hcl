@@ -30,18 +30,44 @@ build {
 
   provisioner "file" {
     content     = <<-EOT
-    #!/bin/bash
-    /var/lib/nethserver/node/install-finalize.sh
+    [Unit]
+    Wants=network-online.target
+    After=network-online.target
+    ConditionFirstBoot=yes
+    ConditionPathExists=!/var/lib/nethserver/node/ready
+    [Service]
+    Type=oneshot
+    ExecStart=/bin/bash /var/lib/nethserver/node/install-finalize.sh
+    ExecStartPost=/usr/bin/touch /var/lib/nethserver/node/ready
+    RemainAfterExit=yes
+    [Install]
+    WantedBy=multi-user.target
     EOT
-    destination = "/tmp/99_ns8-final"
+    destination = "/tmp/ns8-install-finalize.service"
+  }
+
+  provisioner "shell" {
+    execute_command = "sudo env {{ .Vars }} {{ .Path }}"
+    inline = ["mv /tmp/ns8-install-finalize.service /etc/systemd/system/"]
+  }
+
+  provisioner "shell" {
+    except = ["qemu.dn"]
+    execute_command = "sudo env {{ .Vars }} {{ .Path }}"
+    inline = [ "/sbin/restorecon -v /etc/systemd/system/ns8-install-finalize.service"]
   }
 
   provisioner "shell" {
     execute_command = "sudo env {{ .Vars }} {{ .Path }}"
     inline = [
-      "mv /tmp/99_ns8-final /var/lib/cloud/scripts/per-once/99_ns8-final",
-      "chmod +x /var/lib/cloud/scripts/per-once/99_ns8-final",
-      "rm /var/lib/cloud/sem/config_scripts_per_once.once",
+      "systemctl daemon-reload",
+      "systemctl enable ns8-install-finalize.service",
+    ]
+  }
+
+  provisioner "shell" {
+    execute_command = "sudo env {{ .Vars }} {{ .Path }}"
+    inline = [
       "rm install.sh",
       "echo uninitialized > /etc/machine-id",
     ]
