@@ -69,6 +69,7 @@ build {
     execute_command = "sudo env {{ .Vars }} {{ .Path }}"
     inline = [
       "rm install.sh",
+      "cloud-init clean --logs --seed",
       "echo uninitialized > /etc/machine-id",
     ]
   }
