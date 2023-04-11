@@ -24,7 +24,7 @@ build {
     inline = [
       "curl https://raw.githubusercontent.com/NethServer/ns8-core/main/core/install.sh > install.sh",
       "chmod +x install.sh",
-      "./install.sh ghcr.io/nethserver/core:two_steps_install",
+      "./install.sh",
     ]
   }
 
