@@ -73,4 +73,6 @@ build {
       "echo uninitialized > /etc/machine-id",
     ]
   }
+
+  post-processor "manifest" {}
 }
