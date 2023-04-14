@@ -11,6 +11,7 @@ source "qemu" "dn" {
   ssh_username         = "debian"
   ssh_private_key_file = data.sshkey.install.private_key_path
   shutdown_command     = "sudo shutdown -P now"
+  disk_compression     = true
   output_directory     = "qemu_ns8_dn"
   vm_name              = "ns8-debian-11-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
 }
@@ -29,6 +30,7 @@ source "qemu" "rl" {
   ssh_username         = "rocky"
   ssh_private_key_file = data.sshkey.install.private_key_path
   shutdown_command     = "sudo shutdown -P now"
+  disk_compression     = true
   output_directory     = "qemu_ns8_rl"
   vm_name              = "ns8-rocky-linux-9-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
 }
@@ -47,6 +49,7 @@ source "qemu" "cs" {
   ssh_username         = "cloud-user"
   ssh_private_key_file = data.sshkey.install.private_key_path
   shutdown_command     = "sudo shutdown -P now"
+  disk_compression     = true
   output_directory     = "qemu_ns8_cs"
   vm_name              = "ns8-centos-stream-9-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
 }
@@ -65,6 +68,7 @@ source "qemu" "al" {
   ssh_username         = "almalinux"
   ssh_private_key_file = data.sshkey.install.private_key_path
   shutdown_command     = "sudo shutdown -P now"
+  disk_compression     = true
   output_directory     = "qemu_ns8_al"
   vm_name              = "ns8-alma-linux-9-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
 }
