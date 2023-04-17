@@ -24,7 +24,7 @@ build {
     inline = [
       "curl https://raw.githubusercontent.com/NethServer/ns8-core/main/core/install.sh > install.sh",
       "chmod +x install.sh",
-      "./install.sh",
+      "./install.sh ${local.core_module}",
     ]
   }
 

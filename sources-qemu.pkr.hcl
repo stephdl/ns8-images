@@ -13,7 +13,7 @@ source "qemu" "dn" {
   shutdown_command     = "sudo shutdown -P now"
   disk_compression     = true
   output_directory     = "qemu_ns8_dn"
-  vm_name              = "ns8-debian-11-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
+  vm_name              = "ns8-debian-11-${var.core_version}.qcow2"
 }
 
 source "qemu" "rl" {
@@ -32,7 +32,7 @@ source "qemu" "rl" {
   shutdown_command     = "sudo shutdown -P now"
   disk_compression     = true
   output_directory     = "qemu_ns8_rl"
-  vm_name              = "ns8-rocky-linux-9-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
+  vm_name              = "ns8-rocky-linux-9-${var.core_version}.qcow2"
 }
 
 source "qemu" "cs" {
@@ -51,7 +51,7 @@ source "qemu" "cs" {
   shutdown_command     = "sudo shutdown -P now"
   disk_compression     = true
   output_directory     = "qemu_ns8_cs"
-  vm_name              = "ns8-centos-stream-9-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
+  vm_name              = "ns8-centos-stream-9-${var.core_version}.qcow2"
 }
 
 source "qemu" "al" {
@@ -70,5 +70,5 @@ source "qemu" "al" {
   shutdown_command     = "sudo shutdown -P now"
   disk_compression     = true
   output_directory     = "qemu_ns8_al"
-  vm_name              = "ns8-alma-linux-9-{{isotime \"2006-01-02 15:04:05 MST\"}}.qcow2"
+  vm_name              = "ns8-alma-linux-9-${var.core_version}.qcow2"
 }

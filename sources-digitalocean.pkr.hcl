@@ -3,7 +3,7 @@ source "digitalocean" "dn" {
   region        = "ams3"
   size          = "s-1vcpu-1gb"
   ssh_username  = "root"
-  snapshot_name = "ns8-debian-11-{{isotime \"2006-01-02 15:04:05 MST\"}}"
+  snapshot_name = "ns8-debian-11-${var.core_version}"
 }
 
 source "digitalocean" "rl" {
@@ -11,7 +11,7 @@ source "digitalocean" "rl" {
   region        = "ams3"
   size          = "s-1vcpu-1gb"
   ssh_username  = "root"
-  snapshot_name = "ns8-rockylinux-9-{{isotime \"2006-01-02 15:04:05 MST\"}}"
+  snapshot_name = "ns8-rockylinux-9-${var.core_version}"
 
 }
 
@@ -20,7 +20,7 @@ source "digitalocean" "cs" {
   region        = "ams3"
   size          = "s-1vcpu-1gb"
   ssh_username  = "root"
-  snapshot_name = "ns8-centos-stream-9-{{isotime \"2006-01-02 15:04:05 MST\"}}"
+  snapshot_name = "ns8-centos-stream-9-${var.core_version}"
 
 }
 
@@ -29,6 +29,6 @@ source "digitalocean" "al" {
   region        = "ams3"
   size          = "s-1vcpu-1gb"
   ssh_username  = "root"
-  snapshot_name = "ns8-almalinux-9-{{isotime \"2006-01-02 15:04:05 MST\"}}"
+  snapshot_name = "ns8-almalinux-9-${var.core_version}"
 
 }

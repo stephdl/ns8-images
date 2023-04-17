@@ -15,3 +15,7 @@ local cloud-init {
     EOT
   }
 }
+
+local core_module {
+  expression = "${var.core_url}:${var.core_version}"
+}
