@@ -4,7 +4,7 @@ local cloud-init {
     "/vendor-data" = ""
     "/user-data"   = <<-EOT
     #cloud-config
-    fqdn: builder.nethserver.org
+    fqdn: node.ns8.test
     manage_etc_hosts: localhost
     ssh_authorized_keys:
       - ${data.sshkey.install.public_key}
