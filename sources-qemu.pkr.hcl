@@ -17,8 +17,8 @@ source "qemu" "dn" {
 }
 
 source "qemu" "rl" {
-  iso_url      = "http://download.rockylinux.org/pub/rocky/9.1/images/x86_64/Rocky-9-GenericCloud-Base-9.1-20230215.0.x86_64.qcow2"
-  iso_checksum = "file:http://download.rockylinux.org/pub/rocky/9.1/images/x86_64/Rocky-9-GenericCloud-Base-9.1-20230215.0.x86_64.qcow2.CHECKSUM"
+  iso_url      = "https://dl.rockylinux.org/vault/rocky/9.1/images/x86_64/Rocky-9-GenericCloud-Base-9.1-20230215.0.x86_64.qcow2"
+  iso_checksum = "file:https://dl.rockylinux.org/vault/rocky/9.1/images/x86_64/Rocky-9-GenericCloud-Base-9.1-20230215.0.x86_64.qcow2.CHECKSUM"
   disk_image   = true
   headless     = true
   cpu_model    = "host"
